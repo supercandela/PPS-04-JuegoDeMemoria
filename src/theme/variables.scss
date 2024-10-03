@@ -1,9 +1,8 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
-
-
-.md.toolbar-title-default {
-    /** toolbar **/
-    --ion-toolbar-background: rgb(255, 153, 0);;
-    --ion-toolbar-color: white;
+@font-face {
+    font-family: 'cuteNotes';
+    src: url('../assets/fonts/CuteNotes.ttf') format("truetype");
 }
+
+// * {
+//     --ion-font-family: 'cuteNotes', 'arial', sans-serif;
+// }

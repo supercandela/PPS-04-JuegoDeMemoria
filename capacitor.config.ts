@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'com.ioniccapacitorapp.CapturaYVota',
-  appName: 'CapturaYVota',
+  appId: 'com.ioniccapacitorapp.JuegoDeMemoria',
+  appName: 'JuegoDeMemoria',
   webDir: 'www'
 };
 

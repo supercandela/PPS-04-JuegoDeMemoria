@@ -1,84 +1,111 @@
-@-webkit-keyframes slide-in-elliptic-bottom-fwd {
+ @-webkit-keyframes rotate-splash {
     0% {
-        -webkit-transform: translateY(600px) rotateX(30deg) scale(0);
-                transform: translateY(600px) rotateX(30deg) scale(0);
-        -webkit-transform-origin: 50% 100%;
-                transform-origin: 50% 100%;
-        opacity: 0;
+      -webkit-transform: rotateY(-360deg);
+              transform: rotateY(-360deg);
+      opacity: 0;
     }
     100% {
-        -webkit-transform: translateY(0) rotateX(0) scale(1);
-                transform: translateY(0) rotateX(0) scale(1);
-        -webkit-transform-origin: 50% -1400px;
-                transform-origin: 50% -1400px;
-        opacity: 1;
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+      opacity: 1;
     }
-}
-@keyframes slide-in-elliptic-bottom-fwd {
+  }
+  @keyframes rotate-splash {
     0% {
-        -webkit-transform: translateY(600px) rotateX(30deg) scale(0);
-                transform: translateY(600px) rotateX(30deg) scale(0);
-        -webkit-transform-origin: 50% 100%;
-                transform-origin: 50% 100%;
-        opacity: 0;
+      -webkit-transform: rotateY(-360deg);
+              transform: rotateY(-360deg);
+      opacity: 0;
     }
     100% {
-        -webkit-transform: translateY(0) rotateX(0) scale(1);
-                transform: translateY(0) rotateX(0) scale(1);
-        -webkit-transform-origin: 50% -1400px;
-                transform-origin: 50% -1400px;
-        opacity: 1;
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+      opacity: 1;
     }
-}
+  }
+
+@-webkit-keyframes rotate-titulo {
+    0% {
+      -webkit-transform: rotateY(-360deg);
+              transform: rotateY(-360deg);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+      opacity: 1;
+    }
+  }
+  @keyframes rotate-titulo {
+    0% {
+      -webkit-transform: rotateY(-360deg);
+              transform: rotateY(-360deg);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+      opacity: 1;
+    }
+  }
+  
+  
 
 ion-content {
-    --background: rgb(152, 251, 152);
+    --background: url('../../assets/images/fondo.png') 0 0/100% 100% no-repeat;
+
+    .container {
+        // SLIDE
+        -webkit-animation: rotate-splash 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+	    animation: rotate-splash 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s both;
+
+        img {
+            width: 80vw;
+            margin-top: 8vh;
+        }
+    }
 
     .titulo {
-        margin-top: 12vh;
+        margin-top: 8vh;
+        -webkit-animation: rotate-titulo 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
+                animation: rotate-titulo 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both;
         h1 {
             color: white;
-            font-size: 3em;
+            font-family: 'cuteNotes', 'arial', sans-serif;
+            font-size: 4em;
             font-weight: bolder;
             text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
         }
     }
 
     .nombre {
-        margin-top: 10vh;
+        margin-top: 8vh;
+        background-color:  rgb(255, 255, 255);
 
         ion-label {
-            background-color:  rgb(255, 188, 88);
-            color: white;
+            background: linear-gradient(43deg, #4158D0 0%, #C850C0 39%, #FFCC70 84%, #ffffff 99%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             padding: 10px;
-            font-size: medium;
+            font-size: 1.2em;
             font-weight: 800;
             border-radius: 10px;
         }
     }
 
     .division {
-        margin-top: 8vh;
+        margin-top: 2vh;
+        background-color:  rgb(255, 255, 255);
 
         ion-label {
-            background-color:  rgb(255, 188, 88);
-            color: white;
+            background: linear-gradient(43deg, #4158D0 0%, #C850C0 39%, #FFCC70 84%, #ffffff 99%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
             padding: 10px;
-            font-size: medium;
+            font-size: 1em;
             font-weight: 600;
             border-radius: 10px;
         }
     }
 
-    .container {
 
-        // SLIDE
-        -webkit-animation: slide-in-elliptic-bottom-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-        animation: slide-in-elliptic-bottom-fwd 2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-
-        img {
-            width: 80vw;
-            margin-top: 10vh;
-        }
-    }
 }
