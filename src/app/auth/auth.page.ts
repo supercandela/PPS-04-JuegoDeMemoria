@@ -15,7 +15,7 @@ import { AuthResponseData, AuthService } from './auth.service';
 })
 export class AuthPage {
   isLoading = false;
-  isLogin = false;
+  isLogin = true;
 
   constructor(
     private authService: AuthService, 
