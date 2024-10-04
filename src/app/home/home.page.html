@@ -1,19 +1,14 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="onLogout()">
-        Cerrar sesión
-      </ion-button>
-    </ion-buttons>
-    <ion-title>Bienvenido</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-
-  <div class="buttons-container">
-    <button ion-button class="full-height-button button-left"></button>
-    <button ion-button class="full-height-button button-right"></button>
+<ion-content>
+  <div class="memory-game-container">
+    <div class="level-buttons">
+      <button ion-button class="level-btn simple">Simple</button>
+      <button ion-button class="level-btn medio">Intermedio</button>
+      <button ion-button class="level-btn dificil">Complicado</button>
+    </div>
+    
+    <div class="small-buttons">
+      <button ion-button class="small-btn puntajes">Puntajes más altos</button>
+      <button ion-button class="small-btn logout-btn" (click)="onLogout()">Cerrar sesión</button>
+    </div>
   </div>
-
 </ion-content>
