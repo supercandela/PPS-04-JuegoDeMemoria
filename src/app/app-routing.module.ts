@@ -21,7 +21,18 @@ const routes: Routes = [
   {
     path: 'splash',
     loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+  },
+  {
+    path: 'juego',
+    children: [
+      {
+        path: ':nivel',
+        loadChildren: () => import('./juego/juego.module').then( m => m.JuegoPageModule),
+        canMatch: [authGuard]
+      }
+    ]
   }
+
 ];
  
 @NgModule({

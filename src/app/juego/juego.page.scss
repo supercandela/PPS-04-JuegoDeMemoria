@@ -1,0 +1,124 @@
+ion-header {
+    ion-toolbar {
+        --background: rgb(215, 91, 253);
+        color: white;
+    }
+}
+
+ion-footer {
+    ion-toolbar {
+        --background: rgb(255, 0, 0);
+
+        ion-button {
+            --color: white;
+            --background: transparent;
+            border: none;
+            --box-shadow: none;
+        }
+    }
+}
+
+/* Asegúrate de que el ion-content ocupa la pantalla disponible */
+ion-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    --background: url('../../assets/images/fondo.png') 0 0/100% 100% no-repeat;
+    box-sizing: border-box;
+}
+
+.grid-container {
+    display: grid;
+    gap: 10px;
+    padding: 10px;
+    height: 100%;
+    /* Ocupa todo el espacio disponible */
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Grillas para diferentes niveles */
+.simple {
+    grid-template-columns: repeat(2, 1fr);
+    /* 3 columnas para 6 fichas */
+    grid-template-rows: repeat(3, 1fr);
+    /* 2 filas */
+}
+
+.intermedio {
+    grid-template-columns: repeat(3, 1fr);
+    /* 5 columnas para 10 fichas */
+    grid-template-rows: repeat(4, 1fr);
+    /* 2 filas */
+}
+
+.complicado {
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columnas para 16 fichas */
+    grid-template-rows: repeat(4, 1fr);
+    /* 4 filas */
+}
+
+
+.grid-item {
+    perspective: 1000px;
+    /* Define la profundidad 3D para el efecto de volteo */
+}
+
+.ficha {
+    background-color: #f1f1f1;
+    border: 2px solid #ccc;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transform-style: preserve-3d;
+    /* Mantiene los elementos en 3D */
+    transition: transform 0.6s;
+    /* Duración de la animación de volteo */
+    transform: rotateY(0deg);
+    /* Iniciar con el reverso hacia arriba */
+    backface-visibility: hidden;
+}
+
+.ficha.volteada {
+    transform: rotateY(180deg);
+    /* Efecto de volteo cuando se voltea la ficha */
+}
+
+.ficha-frente {
+    transform: rotateY(180deg);
+    /* El frente está inicialmente volteado */
+}
+
+.ficha-frente,
+.ficha-reverso {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    backface-visibility: hidden;
+    /* Oculta la cara de atrás durante el volteo */
+}
+
+.ficha.coincidencia {
+    animation: coincidencia 0.5s ease-in-out;
+    /* Duración de 0.5 segundos */
+}
+
+@keyframes coincidencia {
+    0% {
+        transform: scale(1) rotateY(180deg);
+    }
+
+    50% {
+        transform: scale(1.2) rotateY(180deg);
+        /* Aumenta el tamaño en un 20% */
+    }
+
+    100% {
+        transform: scale(1) rotateY(180deg);
+    }
+}

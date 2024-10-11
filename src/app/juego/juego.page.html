@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Tiempo: {{ tiempoAMostrar }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="grid-container" [ngClass]="nivel">
+    <div class="grid-item" *ngFor="let ficha of fichas" (click)="voltearFicha(ficha)">
+      <div class="ficha" [class.volteada]="ficha.volteada" [class.coincidencia]="ficha.coincidencia">
+        <div class="ficha-frente">
+          <img [src]="ficha.frente" alt="Frente de la ficha" />
+        </div>
+        <div class="ficha-reverso">
+          <img [src]="reverso" alt="Reverso de la ficha" />
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" (click)="volverAlHome()">
+      Volver
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>
