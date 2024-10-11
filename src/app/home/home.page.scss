@@ -29,12 +29,11 @@ ion-content {
         /* Asegura que cada botón ocupe el mismo espacio vertical */
         flex-grow: 1;
         /* Los botones de nivel crecerán para ocupar el espacio disponible */
-        font-size: 1.5rem;
         border-radius: 10px;
         border: 10px solid rgb(215, 91, 253);
         background-color: rgb(255, 255, 255);
         font-family: 'cuteNotes', 'arial', sans-serif;
-        font-size: 2.5em;
+        font-size: 2em;
         color: rgb(255, 0, 0);
         font-weight: bolder;
         text-shadow: 3px 3px 20px white;

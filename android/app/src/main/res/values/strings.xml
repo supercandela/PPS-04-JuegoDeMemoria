@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">CapturaYVota</string>
-    <string name="title_activity_main">CapturaYVota</string>
-    <string name="package_name">com.ioniccapacitorapp.CapturaYVota</string>
-    <string name="custom_url_scheme">com.ioniccapacitorapp.CapturaYVota</string>
+    <string name="app_name">JuegoDeMemoriaYVota</string>
+    <string name="title_activity_main">JuegoDeMemoriaYVota</string>
+    <string name="package_name">com.ioniccapacitorapp.JuegoDeMemoriaYVota</string>
+    <string name="custom_url_scheme">com.ioniccapacitorapp.JuegoDeMemoriaYVota</string>
 </resources>
