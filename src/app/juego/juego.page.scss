@@ -2,6 +2,7 @@ ion-header {
     ion-toolbar {
         --background: rgb(215, 91, 253);
         color: white;
+        font-size: 1.2em;
     }
 }
 
@@ -10,13 +11,12 @@ ion-footer {
         --background: rgb(255, 0, 0);
 
         ion-button {
-            --color: white;
-            --background: transparent;
+            font-size: 1.2em;
             border: none;
             --box-shadow: none;
         }
     }
-}
+}  
 
 /* Asegúrate de que el ion-content ocupa la pantalla disponible */
 ion-content {
@@ -121,4 +121,40 @@ ion-content {
     100% {
         transform: scale(1) rotateY(180deg);
     }
+}
+
+
+
+/* Fondo del Alert */
+::ng-deep .alerta-personalizada {
+    --background: linear-gradient(135deg, #ff4081 0%, #ff80ab 100%);
+    border-radius: 20px;
+}
+
+/* Estilo del header */
+::ng-deep .alerta-personalizada .alert-title {
+    --color: white;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Estilo del header */
+::ng-deep .alerta-personalizada .alert-sub-title {
+    --color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+/* Estilo del mensaje */
+::ng-deep .alerta-personalizada .alert-message {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Estilo de los botones */
+::ng-deep .alerta-personalizada .alert-button {
+    color: rgb(98, 98, 98);
+    background-color: rgb(253, 253, 140);
+    border-radius: 5px;
 }

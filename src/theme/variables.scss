@@ -2,3 +2,12 @@
     font-family: 'cuteNotes';
     src: url('../assets/fonts/CuteNotes.ttf') format("truetype");
 }
+
+:root {
+    --ion-color-primary: transparent; /* El color que quieras */
+    // --ion-color-primary-rgb: 56, 128, 255; /* Valores RGB del color */
+    --ion-color-primary-contrast: #ffffff; /* Color de contraste para texto */
+    // --ion-color-primary-contrast-rgb: 255, 255, 255;
+    // --ion-color-primary-shade: #3171e0; /* Tono más oscuro */
+    // --ion-color-primary-tint: #4c8dff; /* Tono más claro */
+  }

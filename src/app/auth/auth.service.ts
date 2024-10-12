@@ -45,6 +45,17 @@ export class AuthService {
                       }));
   }
 
+  get userEmail () {
+    return this._user.asObservable()
+                      .pipe(map(user => {
+                        if (user) {
+                          return user.email;
+                        } else {
+                          return null;
+                        }
+                      }));
+  }
+
   constructor (
     private http: HttpClient
   ) { }

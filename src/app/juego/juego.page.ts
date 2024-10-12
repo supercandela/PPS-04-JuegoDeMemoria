@@ -1,13 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+import {
+  Firestore,
+  addDoc,
+  collection
+} from '@angular/fire/firestore';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-juego',
   templateUrl: './juego.page.html',
   styleUrls: ['./juego.page.scss'],
 })
-export class JuegoPage implements OnInit {
+export class JuegoPage implements OnInit, OnDestroy {
   nivel: string = '';
+  fichasEmparejadas: number = 0;
+  fichasPorNivel: number = 0;
   fichas: any[] = [];
   tiempo: number = 0;
   tiempoAMostrar: string = '';
@@ -15,17 +25,35 @@ export class JuegoPage implements OnInit {
   reverso: string = '../../assets/images/ficha-reverso.png'; // Imagen común de reverso para todas las fichas
   fichasVolteadas: any[] = []; // Para guardar las fichas volteadas temporalmente
   bloqueo: boolean = false; // Para evitar que voltee más de 2 fichas a la vez
+  sub?: Subscription;
+  usuario: string = '';
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private authService: AuthService,
+    private firestore: Firestore,
+    private alertController: AlertController
+  ) {}
 
   ngOnInit() {
     this.nivel = this.route.snapshot.paramMap.get('nivel') || '';
     this.iniciarJuego(); // Puedes cambiar el nivel de dificultad aquí
     this.iniciarTiempo();
+    this.sub = this.authService.userEmail.subscribe((respuesta: any) => {
+      this.usuario = respuesta;
+    });
   }
 
   iniciarJuego() {
     this.fichas = this.generarFichas();
+    if (this.nivel == 'simple') {
+      this.fichasPorNivel = 6;
+    } else if (this.nivel == 'intermedio') {
+      this.fichasPorNivel = 10;
+    } else if (this.nivel == 'complicado') {
+      this.fichasPorNivel = 16;
+    }
   }
 
   generarFichas() {
@@ -107,6 +135,10 @@ export class JuegoPage implements OnInit {
       }, 500); // Mantiene la animación por 0.5 segundos
 
       this.bloqueo = false; // Permite seguir jugando
+      this.fichasEmparejadas += 2;
+      if (this.fichasEmparejadas === this.fichasPorNivel) {
+        this.terminarJuego();
+      }
     } else {
       // Si no son iguales, volver a voltearlas después de un tiempo
       setTimeout(() => {
@@ -135,8 +167,55 @@ export class JuegoPage implements OnInit {
     return `${minutos}:${segundosFormateados}`;
   }
 
+  detenerTiempo() {
+    if (this.interval) {
+      clearInterval(this.interval); // Detiene el intervalo
+      this.interval = null; // Limpia la referencia del intervalo
+    }
+  }
+  
+  terminarJuego() {
+    this.detenerTiempo();
+    this.registrarTiempo();
+    this.mostrarAlerta();
+  }
+  
+  registrarTiempo() {
+    const fechaActual = new Date();
+    // en qué día
+    const dia = fechaActual.toISOString().split('T')[0];
+    // en qué hora
+    const hora = fechaActual.toTimeString().split(' ')[0];
+    // qué puntaje obtuvo -> this.tiempo
+
+    let col = collection(this.firestore, 'mejoresMemoTest');
+    addDoc(col, {
+      usuario: this.usuario,
+      tiempo: this.tiempo,
+      dia: dia,
+      hora: hora,
+      nivel: this.nivel
+    });
+  }
+
+  async mostrarAlerta() {
+    const alert = await this.alertController.create({
+      header: '¡Buen trabajo!',
+      subHeader: 'Has ganado el juego',
+      message: 'Encontraste todos los pares en ' + this.convertirTiempo(this.tiempo) + ' minutos.',
+      buttons: ['OK'],
+      cssClass: 'alerta-personalizada'
+    });
+  
+    await alert.present();
+  }
+
   volverAlHome() {
     clearInterval(this.interval); // Detiene el temporizador
     this.router.navigate(['/home']); // Navega al home
+  }
+
+  ngOnDestroy() {
+    this.sub?.unsubscribe();
   }
 }
