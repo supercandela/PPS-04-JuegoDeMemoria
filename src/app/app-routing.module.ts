@@ -31,8 +31,12 @@ const routes: Routes = [
         canMatch: [authGuard]
       }
     ]
+  },
+  {
+    path: 'mejores-tiempos',
+    loadChildren: () => import('./mejores-tiempos/mejores-tiempos.module').then( m => m.MejoresTiemposPageModule),
+    canMatch: [authGuard]
   }
-
 ];
  
 @NgModule({

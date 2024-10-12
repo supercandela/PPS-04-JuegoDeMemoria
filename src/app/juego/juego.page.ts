@@ -181,19 +181,11 @@ export class JuegoPage implements OnInit, OnDestroy {
   }
   
   registrarTiempo() {
-    const fechaActual = new Date();
-    // en qué día
-    const dia = fechaActual.toISOString().split('T')[0];
-    // en qué hora
-    const hora = fechaActual.toTimeString().split(' ')[0];
-    // qué puntaje obtuvo -> this.tiempo
-
     let col = collection(this.firestore, 'mejoresMemoTest');
     addDoc(col, {
       usuario: this.usuario,
       tiempo: this.tiempo,
-      dia: dia,
-      hora: hora,
+      fecha: new Date(),
       nivel: this.nivel
     });
   }
