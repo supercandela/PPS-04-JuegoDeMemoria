@@ -10,12 +10,14 @@ ion-header {
     display: flex;
     justify-content: space-between;
     width: 100%;
-  }
-  
-  .botones-niveles ion-button {
-    flex: 1; /* Cada botón ocupa un tercio */
-    margin: 0 5px; /* Espacio entre los botones */
-  }
+}
+
+.botones-niveles ion-button {
+    flex: 1;
+    /* Cada botón ocupa un tercio */
+    margin: 0 5px;
+    /* Espacio entre los botones */
+}
 
 ion-footer {
     ion-toolbar {
@@ -27,7 +29,7 @@ ion-footer {
             --box-shadow: none;
         }
     }
-}  
+}
 
 ion-content {
     --background: url('../../assets/images/fondo.png') 0 0/100% 100% no-repeat;
@@ -47,36 +49,45 @@ h2.nivel {
 }
 
 .tabla {
-    background-color: rgba(128, 128, 128,0.6);
+    background-color: rgba(128, 128, 128, 0.6);
 }
 
 ion-grid {
     width: 100%;
-  }
-  
-  ion-row {
+}
+
+ion-row {
     display: flex;
-    justify-content: space-between; /* Asegura que las columnas estén bien distribuidas */
-    align-items: center; /* Centra verticalmente el contenido en cada celda */
-  }
-  
-  ion-col {
+    justify-content: space-between;
+    /* Asegura que las columnas estén bien distribuidas */
+    align-items: center;
+    /* Centra verticalmente el contenido en cada celda */
+}
+
+ion-col {
     flex: 1;
     text-align: center;
     padding: 8px;
-    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-    overflow: hidden; /* Oculta el contenido que se desborda */
-    text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es demasiado largo */
-  }
-  
-  ion-col.data {
-    font-size: 0.8em;
-  }
+    white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;
+    /* Oculta el contenido que se desborda */
+    text-overflow: ellipsis;
+    /* Añade puntos suspensivos si el texto es demasiado largo */
+}
 
-  .col-icon {
-    width: 100%; /* Ajusta la imagen al ancho de la columna */
-    max-width: 50px; /* Establece un ancho máximo para que no sea demasiado grande */
-    height: auto; /* Mantiene la relación de aspecto */
+ion-col.data {
+    font-size: 0.8em;
+}
+
+.col-icon {
+    width: 100%;
+    /* Ajusta la imagen al ancho de la columna */
+    max-width: 50px;
+    /* Establece un ancho máximo para que no sea demasiado grande */
+    height: auto;
+    /* Mantiene la relación de aspecto */
     display: block;
-    margin: 0 auto; /* Centra la imagen */
-  }
+    margin: 0 auto;
+    /* Centra la imagen */
+}
