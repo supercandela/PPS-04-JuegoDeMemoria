@@ -31,12 +31,17 @@ ion-content {
         /* Los botones de nivel crecerán para ocupar el espacio disponible */
         border-radius: 10px;
         border: 10px solid rgb(215, 91, 253);
-        background-color: rgb(255, 255, 255);
+    }
+    
+    .boton-texto {
+        color: rgb(255, 255, 255);
+        background-color: rgb(215, 91, 253);
         font-family: 'cuteNotes', 'arial', sans-serif;
         font-size: 2em;
-        color: rgb(255, 0, 0);
         font-weight: bolder;
-        text-shadow: 3px 3px 20px white;
+        letter-spacing: 0.1em;
+        padding: 10px;
+        border-radius: 10px;
     }
 
     .simple {
